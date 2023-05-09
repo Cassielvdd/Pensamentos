@@ -49,8 +49,6 @@ module.exports = class ToughtsController {
       toughts: toughts,
       emptyToughts: emptyToughts,
     });
-    console.log(toughts);
-    res.render("toughts/dashboard", { toughts: toughts });
   }
   static async createTought(req, res) {
     res.render("toughts/create");

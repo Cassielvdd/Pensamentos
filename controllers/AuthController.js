@@ -14,13 +14,13 @@ module.exports = class AuthControler {
     if (password != confirmpassword) {
       req.flash("message", "As senhas não conferem, tente novamente");
       res.render("auth/register");
-      return;
+      res.redirect("auth/register");
     }
     const checkUser = await User.findOne({ where: { email: email } });
     if (checkUser) {
       req.flash("message", "Email já cadastrado");
       res.render("auth/register");
-      return;
+      res.redirect("auth/register");
     }
 
     const salt = bcryptjs.genSaltSync(20);
